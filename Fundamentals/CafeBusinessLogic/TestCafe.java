@@ -34,5 +34,9 @@ public class TestCafe {
             appTest.addCustomer(customers);
             System.out.println("\n");
         }
+        
+        System.out.println("\n----- Print Price Product Test-----");
+        String product = "Columbian Coffee Grounds";
+        appTest.printPriceChart(product, 3, 4 );
     }
 }
