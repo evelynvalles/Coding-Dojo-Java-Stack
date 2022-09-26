@@ -30,5 +30,10 @@ public class CafeUtil {
         System.out.println(String.format("Hello, %s!", userName));
         System.out.println(String.format("There are %s people in front of you", customers.size()));
         customers.add(userName);
+        
+    public void printPriceChart(String product, double price, int maxQuantity) {
+        for (int i = 1; i < maxQuantity; i++) {
+            System.out.println(i + " $" + price * i);
+        }
     }
 }
