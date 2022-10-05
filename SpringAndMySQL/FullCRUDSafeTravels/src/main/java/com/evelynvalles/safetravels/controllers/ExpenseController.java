@@ -48,8 +48,7 @@ public class ExpenseController {
     @GetMapping("/expenses/edit/{id}")
     public String edit(@PathVariable("id") Long id, Model model) {
         Expense expense = expenseService.findExpense(id);
-        model.addAttribute("expense", expense);
-        model.addAttribute("updateExpense", new Expense());
+        model.addAttribute("updateExpense", expense);
         return "edit.jsp";
     }
     
