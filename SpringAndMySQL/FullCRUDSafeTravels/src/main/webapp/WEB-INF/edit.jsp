@@ -16,7 +16,7 @@
 		<h1>Edit Expense</h1>
 		<a href="/expenses" class="btn btn-secondary">Go Back</a>
 	</div>
-	<form:form action="/expenses/update/${expense.id}" method="POST" modelAttribute="updateExpense">
+	<form:form action="/expenses/update/${updateExpense.id}" method="POST" modelAttribute="updateExpense">
 		<input type="hidden" name="_method" value="put">
 		<div>
 			<form:label class="form-label" path="name">Expense Name: </form:label>
