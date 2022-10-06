@@ -32,8 +32,9 @@ public class HomeController {
 	}
 	
 	@PostMapping("/dojos/new")
-	public String dojosNew(@Valid @ModelAttribute("newDojo") Dojo newDojo, BindingResult result) {
+	public String dojosNew(@Valid @ModelAttribute("newDojo") Dojo newDojo, BindingResult result, Model model) {
 		if (result.hasErrors()) {
+			model.addAttribute("dojos", dojoService.allDojos());
 			return "dojosForm.jsp";
 		}
 		else {
@@ -49,8 +50,9 @@ public class HomeController {
 	}
 	
 	@PostMapping("/ninjas/new")
-	public String ninjasNew(@Valid @ModelAttribute("newNinja") Ninja newNinja, BindingResult result) {
+	public String ninjasNew(@Valid @ModelAttribute("newNinja") Ninja newNinja, BindingResult result, Model model) {
 		if (result.hasErrors()) {
+			model.addAttribute("dojos", dojoService.allDojos());
 			return "ninjasForm.jsp";
 		}
 		else {
