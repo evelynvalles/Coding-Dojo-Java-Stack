@@ -1,5 +1,6 @@
 package com.evelynvalles.bookclub.controllers;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,9 +58,12 @@ public class BookController {
 	}
 	
 	@GetMapping("/books/{id}/edit")
-	public String editForm(@PathVariable("id") Long id, Model model) {
+	public String editForm(@PathVariable("id") Long id, Model model, HttpSession session) {
 		Book book = bookService.findBook(id);
 		model.addAttribute("editBook", book);
+		if (book.getUser().getId() != (Long) session.getAttribute("userId")) {
+			return "redirect:/books";
+		}
 		return "editBook.jsp";
 	}
 	
